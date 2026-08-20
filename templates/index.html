@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NutriBot | Food & Nutrition AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🥗
+            </div>
+
+            <div>
+                <h2>NutriBot</h2>
+                <p>Food & Nutrition AI</p>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <h3>Food & Nutrition</h3>
+
+            <div class="side-item">
+                🍎
+                <span>Food Benefits</span>
+            </div>
+
+            <div class="side-item">
+                🥦
+                <span>Nutrition Facts</span>
+            </div>
+
+            <div class="side-item">
+                💪
+                <span>Protein & Nutrients</span>
+            </div>
+
+            <div class="side-item">
+                🔥
+                <span>Calories</span>
+            </div>
+
+            <div class="side-item">
+                🥗
+                <span>Healthy Eating</span>
+            </div>
+
+            <div class="side-item">
+                🍌
+                <span>Food Comparison</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-footer">
+
+            <div class="online-status">
+
+                <span></span>
+
+                AI Assistant Online
+
+            </div>
+
+            <small>
+                General food & nutrition information
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="mobile-brand">
+
+                <span>🥗</span>
+
+                <strong>
+                    NutriBot
+                </strong>
+
+            </div>
+
+
+            <div class="header-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Online
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= CHAT ================= -->
+
+        <section
+            class="chat-area"
+            id="chatContainer"
+        >
+
+
+            <!-- WELCOME -->
+
+            <div
+                class="welcome"
+                id="welcome"
+            >
+
+                <div class="welcome-icon">
+                    🥗
+                </div>
+
+
+                <h1>
+                    Welcome to NutriBot
+                </h1>
+
+
+                <p>
+                    Your AI assistant for food and nutrition.
+                </p>
+
+
+                <div class="welcome-note">
+
+                    <span>💡</span>
+
+                    <p>
+                        Ask questions about food, nutrients,
+                        calories, vitamins, protein and healthy eating.
+                    </p>
+
+                </div>
+
+
+                <!-- ================= SUGGESTIONS ================= -->
+
+                <div class="suggestions">
+
+
+                    <button
+                        type="button"
+                        onclick="sendSuggestion('What are the benefits of eating bananas?')"
+                    >
+
+                        <span class="suggestion-icon">
+                            🍌
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Banana Benefits
+                            </strong>
+
+                            <small>
+                                Nutrition and benefits
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        onclick="sendSuggestion('What foods are rich in protein?')"
+                    >
+
+                        <span class="suggestion-icon">
+                            💪
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Protein Foods
+                            </strong>
+
+                            <small>
+                                Protein-rich food sources
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        onclick="sendSuggestion('What vitamins are found in carrots?')"
+                    >
+
+                        <span class="suggestion-icon">
+                            🥕
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Carrot Vitamins
+                            </strong>
+
+                            <small>
+                                Vitamins and nutrients
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        onclick="sendSuggestion('What is a balanced diet?')"
+                    >
+
+                        <span class="suggestion-icon">
+                            🥗
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Balanced Diet
+                            </strong>
+
+                            <small>
+                                Healthy eating basics
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= ASK QUESTION ================= -->
+
+        <div class="input-section">
+
+
+            <div class="ask-title">
+                Ask your question
+            </div>
+
+
+            <div class="input-wrapper">
+
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Type your food or nutrition question here..."
+                    rows="1"
+                    autocomplete="off"
+                ></textarea>
+
+
+                <button
+                    id="sendButton"
+                    type="button"
+                    onclick="sendMessage()"
+                    aria-label="Send question"
+                >
+
+                    <span>
+                        ➤
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <div class="input-info">
+
+                <span>
+                    🥗 Food & Nutrition questions only
+                </span>
+
+                <span>
+                    Enter to send
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+
+</body>
+
+</html>
